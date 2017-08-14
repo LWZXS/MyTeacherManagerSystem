@@ -1,8 +1,18 @@
+// NProgress.start();
 
-	NProgress.start();
+// NProgress.done();
 
-	NProgress.done();
+// $('.navs ul').prev('a').on('click', function () {
+// 	$(this).next().slideToggle();
+// });
 
-	$('.navs ul').prev('a').on('click', function () {
-		$(this).next().slideToggle();
-	});
+if(!$.cookie("PHPSESSID") && location.pathname.indexOf('/login') == -1){
+	location.href = '/login';
+}
+
+if(location.pathname.indexOf('/login') == -1){
+	var tc_info = JSON.parse($.cookie("tc_info"));
+	var html = template("tc_profile",tc_info);
+	$(".aside>.profile").html(html);
+	// console.log(html);
+}
