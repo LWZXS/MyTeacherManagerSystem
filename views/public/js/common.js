@@ -9,3 +9,10 @@
 if(!$.cookie("PHPSESSID") && location.pathname.indexOf('/login') == -1){
 	location.href = '/login';
 }
+
+if(location.pathname.indexOf('/login') == -1){
+	var tc_info = JSON.parse($.cookie("tc_info"));
+	var html = template("tc_profile",tc_info);
+	$(".aside>.profile").html(html);
+	// console.log(html);
+}

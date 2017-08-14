@@ -17,13 +17,13 @@
                     <span class="input-group-addon">
                         <i class="fa fa-user"></i>
                     </span>
-                    <input type="text" class="form-control" placeholder="用户名" name="tc_name">
+                    <input type="text" class="form-control" placeholder="用户名" name="tc_name" value="前端学院">
                 </div>
                 <div class="input-group input-group-lg">
                     <span class="input-group-addon">
                         <i class="fa fa-key"></i>
                     </span>
-                    <input type="password" class="form-control" placeholder="密码" name="tc_pass">
+                    <input type="password" class="form-control" placeholder="密码" name="tc_pass" value="123456">
                 </div>
                 <button type="submit" class="btn btn-lg btn-primary btn-block">登 录</button>
             </form>
@@ -43,6 +43,8 @@
             data : data,
             success :function(res){
                 if(res.code == 200){
+                    var info = JSON.stringify(res.result);
+                    $.cookie("tc_info",info);
                     alert("登陆成功");
                     location.href = '/';
                 }
