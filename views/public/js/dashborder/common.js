@@ -17,7 +17,7 @@
 // 	// console.log(html);
 // }
 
-define(['jquery','cookie','template'], function ($,cookie,template) {
+define(['jquery', 'cookie', 'template'], function ($, cookie, template) {
 	if (!$.cookie("PHPSESSID") && location.pathname.indexOf('/login') == -1) {
 		location.href = '/login';
 	}
@@ -28,5 +28,15 @@ define(['jquery','cookie','template'], function ($,cookie,template) {
 		$(".aside>.profile").html(html);
 		// console.log(html);
 	}
+	$("#logout").on("click",function(){
+		$.ajax({
+			url : "/api/logout",
+			type : "POST",
+			success : function(){
+				alert("退出成功");
+				location.href = "/login";
+			}
+		});
+	});
 
 });
