@@ -39,4 +39,11 @@ define(['jquery', 'cookie', 'template'], function ($, cookie, template) {
 		});
 	});
 
+	// console.log($(".navs a+ul"));
+	$(".navs a+ul").parent().click(function(){
+		// console.log($(this));
+		// alert("aaa");
+		$(this).children("ul").slideToggle();
+
+	});
 });
