@@ -98,7 +98,7 @@
         <td>{{value.tc_cellphone}}</td>
         <td data-id="{{value.tc_id}}">
             <a href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs checkInfo">查 看</a>
-            <a href="/views/teacher/add" class="btn btn-info btn-xs">编 辑</a> {{if value.tc_status == 0}}
+            <a href="/views/teacher/add?tc_id={{value.tc_id}}" class="btn btn-info btn-xs">编 辑</a> {{if value.tc_status == 0}}
             <!--0代表启用状态-->
             <a href="javascript:;" class="btn btn-warning btn-xs btn_use_or_not" data-status="{{value.tc_status}}">注 销</a> {{else}}
             <!--1代表注销状态-->
