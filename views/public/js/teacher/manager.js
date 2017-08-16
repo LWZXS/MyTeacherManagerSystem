@@ -10,6 +10,7 @@ define(['jquery', 'template'], function ($, template) {
         var tempArr = searchArr[i].split('=');
         objTemp[tempArr[0]] = tempArr[1];
     }
+    //发送请求渲染页面
     $.ajax({
         'url': '/api/teacher/edit',
         type: 'get',
@@ -26,5 +27,18 @@ define(['jquery', 'template'], function ($, template) {
                 // console.log(htmlStr);
             }
         }
+    });
+    //点击提交保存
+    $('.main .teacher').on('click','.teacherSaveBtn',function(){
+        // alert('保存成功，正在返回');
+        $('form').ajaxSubmit({
+            url:'/api/teacher/update',
+            type:'post',
+            success:function(res){
+                alert('保存成功，正在返回');
+                // location.href ='/views/teacher/list';
+            }
+        });
+        return false;
     });
 });
